@@ -1,13 +1,15 @@
 import logo from "./logo.svg";
 import "./App.css";
 import "./styles.css";
+import Header from "./components/Header";
 
 function App() {
   return (
     <div className="App">
-      <header className="header">
-        <h1> Welcome to MovieDux App</h1>
-      </header>
+      <div className="container">
+        <Header> </Header>
+      </div>
+
       <footer className="footer">
         <p className="footer">
           Footer Content :Copyright © 2026 MovieDux. All rights reserved.
