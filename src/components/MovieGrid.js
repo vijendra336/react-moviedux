@@ -1,5 +1,6 @@
 import React from "react";
 import "../styles.css";
+import MovieCart from "./MovieCart";
 
 export default function MovieGrid() {
   const [movies, setMovies] = React.useState([]);
@@ -21,14 +22,17 @@ export default function MovieGrid() {
   return (
     <div className="movies-grid">
       {movies.map((movie, index) => (
-        <div key={movie.id} className="movie-card">
-          <img src={`images/${movie.image}`} alt={movie.title} />
-          <div className="movie-card-info">
-            <h3 className="movie-card-title">{movie.title}</h3>
-            <p className="movie-card-genre">{movie.genre}</p>
-            <p className="movie-card-rating">{movie.rating}</p>
-          </div>
-        </div>
+        // <div key={movie.id} className="movie-card">
+        //   <img src={`images/${movie.image}`} alt={movie.title} />
+        //   <div className="movie-card-info">
+        //     <h3 className="movie-card-title">{movie.title}</h3>
+        //     <p className="movie-card-genre">{movie.genre}</p>
+        //     <p className="movie-card-rating">{movie.rating}</p>
+        //   </div>
+        // </div>
+
+        // passed movie as props to MovieCart component
+        <MovieCart key={movie.id} movie={movie} />
       ))}
     </div>
   );
