@@ -3,6 +3,7 @@ import "./App.css";
 import "./styles.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import MovieGrid from "./components/MovieGrid";
 
 function App() {
   return (
@@ -10,7 +11,7 @@ function App() {
       <div className="container">
         <Header> </Header>
       </div>
-
+      <MovieGrid> </MovieGrid>
       <Footer> </Footer>
     </div>
   );
