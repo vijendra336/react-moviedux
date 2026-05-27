@@ -6,6 +6,9 @@ export default function MovieGrid() {
   const [movies, setMovies] = React.useState([]);
   const [searchTerm, setSearchTerm] = React.useState("");
 
+  const [genres, setGenres] = React.useState("All Genres");
+  const [ratings, setRatings] = React.useState("All");
+
   React.useEffect(() => {
     fetch("movies.json")
       .then((response) => response.json())
@@ -37,6 +40,30 @@ export default function MovieGrid() {
         value={searchTerm}
         onChange={handleSearchChange}
       />
+
+      <div className="filter-bar">
+        <div className="filter-slot">
+          <label>Genre</label>
+          <select className="filter-dropdown">
+            <option>All Genres</option>
+            <option>Action</option>
+            <option>Comedy</option>
+            <option>Drama</option>
+            <option>Horror</option>
+            <option>Fantasy</option>
+          </select>
+        </div>
+        <div className="filter-slot">
+          <label>Rating</label>
+          <select className="filter-dropdown">
+            <option>All</option>
+            <option>Goood</option>
+            <option>OK</option>
+            <option>Bad</option>
+          </select>
+        </div>
+      </div>
+
       <div className="movies-grid">
         {filteredMovies.map((movie, index) => (
           // <div key={movie.id} className="movie-card">
