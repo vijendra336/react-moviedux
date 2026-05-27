@@ -20,20 +20,27 @@ export default function MovieGrid() {
   console.log({ movies });
 
   return (
-    <div className="movies-grid">
-      {movies.map((movie, index) => (
-        // <div key={movie.id} className="movie-card">
-        //   <img src={`images/${movie.image}`} alt={movie.title} />
-        //   <div className="movie-card-info">
-        //     <h3 className="movie-card-title">{movie.title}</h3>
-        //     <p className="movie-card-genre">{movie.genre}</p>
-        //     <p className="movie-card-rating">{movie.rating}</p>
-        //   </div>
-        // </div>
+    <div>
+      <input
+        type="text"
+        placeholder="Search movies..."
+        className="search-input"
+      />
+      <div className="movies-grid">
+        {movies.map((movie, index) => (
+          // <div key={movie.id} className="movie-card">
+          //   <img src={`images/${movie.image}`} alt={movie.title} />
+          //   <div className="movie-card-info">
+          //     <h3 className="movie-card-title">{movie.title}</h3>
+          //     <p className="movie-card-genre">{movie.genre}</p>
+          //     <p className="movie-card-rating">{movie.rating}</p>
+          //   </div>
+          // </div>
 
-        // passed movie as props to MovieCart component
-        <MovieCard key={movie.id} movie={movie} />
-      ))}
+          // passed movie as props to MovieCart component
+          <MovieCard key={movie.id} movie={movie} />
+        ))}
+      </div>
     </div>
   );
 }
