@@ -6,8 +6,8 @@ export default function MovieGrid() {
   const [movies, setMovies] = React.useState([]);
   const [searchTerm, setSearchTerm] = React.useState("");
 
-  const [genres, setGenres] = React.useState("All Genres");
-  const [ratings, setRatings] = React.useState("All");
+  const [genre, setGenre] = React.useState("All Genres");
+  const [rating, setRating] = React.useState("All");
 
   React.useEffect(() => {
     fetch("movies.json")
@@ -27,6 +27,14 @@ export default function MovieGrid() {
     setSearchTerm(e.target.value);
   };
 
+  const handleGenreChange = (e) => {
+    setGenre(e.target.value);
+  };
+
+  const handleRatingChange = (e) => {
+    setRating(e.target.value);
+  };
+
   const filteredMovies = movies.filter((movie) =>
     movie.title.toLowerCase().includes(searchTerm.toLowerCase()),
   );
@@ -44,7 +52,11 @@ export default function MovieGrid() {
       <div className="filter-bar">
         <div className="filter-slot">
           <label>Genre</label>
-          <select className="filter-dropdown">
+          <select
+            className="filter-dropdown"
+            value={genre}
+            onChange={handleGenreChange}
+          >
             <option>All Genres</option>
             <option>Action</option>
             <option>Comedy</option>
@@ -55,9 +67,13 @@ export default function MovieGrid() {
         </div>
         <div className="filter-slot">
           <label>Rating</label>
-          <select className="filter-dropdown">
+          <select
+            className="filter-dropdown"
+            value={rating}
+            onChange={handleRatingChange}
+          >
             <option>All</option>
-            <option>Goood</option>
+            <option>Good</option>
             <option>OK</option>
             <option>Bad</option>
           </select>
