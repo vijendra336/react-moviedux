@@ -4,6 +4,7 @@ import MovieCard from "./MovieCard";
 
 export default function MovieGrid() {
   const [movies, setMovies] = React.useState([]);
+  const [searchTerm, setSearchTerm] = React.useState("");
 
   React.useEffect(() => {
     fetch("movies.json")
@@ -19,15 +20,25 @@ export default function MovieGrid() {
   console.log("MovieGrid component rendered");
   console.log({ movies });
 
+  const handleSearchChange = (e) => {
+    setSearchTerm(e.target.value);
+  };
+
+  const filteredMovies = movies.filter((movie) =>
+    movie.title.toLowerCase().includes(searchTerm.toLowerCase()),
+  );
+
   return (
     <div>
       <input
         type="text"
         placeholder="Search movies..."
         className="search-input"
+        value={searchTerm}
+        onChange={handleSearchChange}
       />
       <div className="movies-grid">
-        {movies.map((movie, index) => (
+        {filteredMovies.map((movie, index) => (
           // <div key={movie.id} className="movie-card">
           //   <img src={`images/${movie.image}`} alt={movie.title} />
           //   <div className="movie-card-info">
