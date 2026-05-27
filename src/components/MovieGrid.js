@@ -1,6 +1,6 @@
 import React from "react";
 import "../styles.css";
-import MovieCart from "./MovieCart";
+import MovieCard from "./MovieCard";
 
 export default function MovieGrid() {
   const [movies, setMovies] = React.useState([]);
@@ -32,7 +32,7 @@ export default function MovieGrid() {
         // </div>
 
         // passed movie as props to MovieCart component
-        <MovieCart key={movie.id} movie={movie} />
+        <MovieCard key={movie.id} movie={movie} />
       ))}
     </div>
   );

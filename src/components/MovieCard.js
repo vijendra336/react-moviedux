@@ -1,7 +1,7 @@
 import React from "react";
 import "../styles.css";
 
-const MovieCart = ({ movie }) => {
+const MovieCard = ({ movie }) => {
   return (
     <div className="movie-card">
       <img src={`images/${movie.image}`} alt={movie.title} />
@@ -14,4 +14,4 @@ const MovieCart = ({ movie }) => {
   );
 };
 
-export default MovieCart;
+export default MovieCard;
