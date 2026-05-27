@@ -5,15 +5,31 @@ export default function MovieGrid() {
   const [movies, setMovies] = React.useState([]);
 
   React.useEffect(() => {
-    // fetch("https://api.themoviedb.org/3/movie/popular?api_key=<<api_key>>&language=en-US&page=1")
-    //     .then((response) => response.json())
-    //     .then((data) => setMovies(data.results))
-    //     .catch((error) => console.error("Error fetching movies:", error));
+    fetch("movies.json")
+      .then((response) => response.json())
+      .then((data) => setMovies(data))
+      .catch((error) => console.error("Error fetching movies:", error));
 
-    const m = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j"];
+    //const m = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j"];
 
-    setMovies(m);
+    //setMovies(data.results);
   }, []);
 
-  return <div> {movies.length}</div>;
+  console.log("MovieGrid component rendered");
+  console.log({ movies });
+
+  return (
+    <div className="movies-grid">
+      {movies.map((movie, index) => (
+        <div key={movie.id} className="movie-card">
+          <img src={`images/${movie.image}`} alt={movie.title} />
+          <div className="movie-card-info">
+            <h3 className="movie-card-title">{movie.title}</h3>
+            <p className="movie-card-genre">{movie.genre}</p>
+            <p className="movie-card-rating">{movie.rating}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
 }
