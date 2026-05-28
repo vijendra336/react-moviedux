@@ -47,8 +47,26 @@ function App() {
             </ul>
           </nav>
           <Routes>
-            <Route path="/" element={<MovieGrid movies={movies} />} />
-            <Route path="/watchlist" element={<Watchlist />} />
+            <Route
+              path="/"
+              element={
+                <MovieGrid
+                  movies={movies}
+                  watchList={watchlist}
+                  toggleWatchlist={toggleWatchlist}
+                />
+              }
+            />
+            <Route
+              path="/watchlist"
+              element={
+                <Watchlist
+                  movies={movies}
+                  watchList={watchlist}
+                  toggleWatchlist={toggleWatchlist}
+                />
+              }
+            />
           </Routes>
         </Router>
       </div>

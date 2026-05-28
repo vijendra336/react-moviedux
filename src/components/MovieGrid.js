@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../styles.css";
 import MovieCard from "./MovieCard";
 
-export default function MovieGrid({ movies }) {
+export default function MovieGrid({ movies, watchList, toggleWatchlist }) {
   // const [movies, setMovies] = React.useState([]);
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -120,7 +120,12 @@ export default function MovieGrid({ movies }) {
           // </div>
 
           // passed movie as props to MovieCart component
-          <MovieCard key={movie.id} movie={movie} />
+          <MovieCard
+            key={movie.id}
+            movie={movie}
+            toggleWatchlist={toggleWatchlist}
+            isWatchlist={watchList.includes(movie.id)}
+          />
         ))}
       </div>
     </div>

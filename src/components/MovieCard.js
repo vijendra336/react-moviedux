@@ -1,7 +1,7 @@
 import React from "react";
 import "../styles.css";
 
-const MovieCard = ({ movie }) => {
+const MovieCard = ({ movie, isWatchlist, toggleWatchlist }) => {
   const handleError = (e) => {
     e.target.src = "images/default.jpg"; // Fallback image
   };
