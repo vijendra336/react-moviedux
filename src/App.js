@@ -11,6 +11,7 @@ import { useState, useEffect } from "react";
 
 function App() {
   const [movies, setMovies] = useState([]);
+  const [watchlist, setWatchlist] = useState([]);
 
   useEffect(() => {
     fetch("movies.json")
@@ -18,6 +19,16 @@ function App() {
       .then((data) => setMovies(data))
       .catch((error) => console.error("Error fetching movies:", error));
   }, []);
+
+  const toggleWatchlist = (movieId) => {
+    // Implement logic to add/remove movie from watchlist
+
+    setWatchlist((prev) =>
+      prev.includes(movieId)
+        ? prev.filter((id) => id !== movieId)
+        : [...prev, movieId],
+    );
+  };
 
   return (
     <div className="App">
