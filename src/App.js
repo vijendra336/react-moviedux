@@ -1,4 +1,4 @@
-import logo from "./logo.svg";
+// import logo from "./logo.svg";
 import "./App.css";
 import "./styles.css";
 import Header from "./components/Header";
@@ -7,8 +7,18 @@ import MovieGrid from "./components/MovieGrid";
 import Watchlist from "./components/Watchlist";
 
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 function App() {
+  const [movies, setMovies] = useState([]);
+
+  useEffect(() => {
+    fetch("movies.json")
+      .then((response) => response.json())
+      .then((data) => setMovies(data))
+      .catch((error) => console.error("Error fetching movies:", error));
+  }, []);
+
   return (
     <div className="App">
       <div className="container">
@@ -26,7 +36,7 @@ function App() {
             </ul>
           </nav>
           <Routes>
-            <Route path="/" element={<MovieGrid />} />
+            <Route path="/" element={<MovieGrid movies={movies} />} />
             <Route path="/watchlist" element={<Watchlist />} />
           </Routes>
         </Router>

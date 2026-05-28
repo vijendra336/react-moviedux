@@ -1,24 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import "../styles.css";
 import MovieCard from "./MovieCard";
 
-export default function MovieGrid() {
-  const [movies, setMovies] = React.useState([]);
-  const [searchTerm, setSearchTerm] = React.useState("");
+export default function MovieGrid({ movies }) {
+  // const [movies, setMovies] = React.useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
 
   const [genre, setGenre] = React.useState("All Genres");
   const [rating, setRating] = React.useState("All");
 
-  React.useEffect(() => {
-    fetch("movies.json")
-      .then((response) => response.json())
-      .then((data) => setMovies(data))
-      .catch((error) => console.error("Error fetching movies:", error));
+  // React.useEffect(() => {
+  //   fetch("movies.json")
+  //     .then((response) => response.json())
+  //     .then((data) => setMovies(data))
+  //     .catch((error) => console.error("Error fetching movies:", error));
 
-    //const m = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j"];
+  //   //const m = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j"];
 
-    //setMovies(data.results);
-  }, []);
+  //   //setMovies(data.results);
+  // }, []);
 
   console.log("MovieGrid component rendered");
   console.log({ movies });
