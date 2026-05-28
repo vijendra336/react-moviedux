@@ -52,7 +52,7 @@ function App() {
               element={
                 <MovieGrid
                   movies={movies}
-                  watchList={watchlist}
+                  watchlist={watchlist}
                   toggleWatchlist={toggleWatchlist}
                 />
               }
@@ -62,7 +62,7 @@ function App() {
               element={
                 <Watchlist
                   movies={movies}
-                  watchList={watchlist}
+                  watchlist={watchlist}
                   toggleWatchlist={toggleWatchlist}
                 />
               }
